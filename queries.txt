@@ -1,63 +1,47 @@
-% gender facts
+Welcome to SWI-Prolog (threaded, 64 bits, version 10.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
 
-male(mohammed).
-male(saad).
-male(abdulelah).
-male(fares).
-male(khaled).
-male(sultan).
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
 
-female(fatemah).
-female(basmah).
-female(ghaida).
-female(layan).
-female(lamees).
+6 ?- consult(['c:/Users/Layan/Desktop/layansaad.pl']).
+true.
 
+7 ?- father(saad, layan).
+true.
 
-% parent facts
+8 ?- father(layan, saad).
+false.
 
-parent(fatemah, basmah).
-parent(mohammed, basmah).
+9 ?- mother(fatemah, basmah).
+true.
 
-parent(basmah, abdulelah).
-parent(saad, abdulelah).
+10 ?- mother(ghaida, sultan).
+true.
 
-parent(basmah, fares).
-parent(saad, fares).
+11 ?- brother(abdulelah, fares).
+true .
 
-parent(basmah, ghaida).
-parent(saad, ghaida).
+12 ?- brother(lamees, layan).
+false.
 
-parent(basmah, khaled).
-parent(saad, khaled).
+13 ?- sister(abdulelah, ghaida).
+false.
 
-parent(basmah, layan).
-parent(saad, layan).
+14 ?- sister(lamees, layan).
+true .
 
-parent(basmah, lamees).
-parent(saad, lamees).
+15 ?- sister(X, layan).
+X = ghaida .
 
-parent(ghaida, sultan).
+16 ?- parent(X, layan).
+X = basmah .
 
+17 ?- mother(X, sultan).
+X = ghaida .
 
-% rules
+18 ?- mother(ghaida, X).
+X = sultan.
 
-father(X, Y) :-
-    male(X),
-    parent(X, Y).
-
-mother(X, Y) :-
-    female(X),
-    parent(X, Y).
-
-brother(X, Y) :-
-    male(X),
-    parent(P, X),
-    parent(P, Y),
-    X \= Y.
-
-sister(X, Y) :-
-    female(X),
-    parent(P, X),
-    parent(P, Y),
-    X \= Y.
+19 ?- 
